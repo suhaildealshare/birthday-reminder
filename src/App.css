@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 20px 44px rgb(50 50 93 / 12%), 0 -1px 32px rgb(50 50 93 / 6%), 0 3px 12px rgb(0 0 0 / 8%);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  width: 100%
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+h4 {
+  margin: 0
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: .75rem;
+  -webkit-column-gap: .75rem;
+  column-gap: .75rem;
+  margin-bottom: 1.5rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.image img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+  box-shadow: var(--light-shadow);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-icon {
+  position: absolute;
+  right: 10px;
+  transition: transform 1s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  color: rgb(245, 101, 101)
+}
+
+.item:hover .delete-icon {
+  opacity: .8
+}
+
+.btn {
+  display: block;
+  background-color: #2188e2;
+  color: #fff;
+  font-weight: bold;
+  transition: transform .3s ease;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #0d6fc5;
 }

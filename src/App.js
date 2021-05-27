@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { data } from "./data";
 
 function App() {
+  const [people, setPeople] = useState(data);
+
+  const clearAll = () => {
+    setPeople([]);
+  };
+  const deleteItem = (id) => {
+    let newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="container">
+        <h1
+          style={{
+            marginBottom: "1rem",
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Birthdays Today
+        </h1>
+        {people.map((person) => {
+          const { id, img, name, age } = person;
+          return (
+            <div className="item" key={id}>
+              <div className="image">
+                <img src={img} alt="face" />
+              </div>
+              <div className="text-content">
+                <h4 className="name">{name}</h4>
+                <div
+                  className="age"
+                  style={{ color: "#617d98", fontWeight: "500" }}
+                >
+                  {age}
+                </div>
+              </div>
+              <div className="delete-icon" onClick={() => deleteItem(id)}>
+                Remove
+              </div>
+            </div>
+          );
+        })}
+        <button className="btn" onClick={clearAll}>
+          Clear All
+        </button>
+      </div>
     </div>
   );
 }
